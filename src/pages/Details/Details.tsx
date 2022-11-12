@@ -27,7 +27,7 @@ export const Details = () => {
       {
         left: "Currencies",
         right: Object.values(data.currencies || {}).map(({ name, symbol }) => (
-          <p>
+          <p key={name}>
             {name} - {symbol}
           </p>
         )),

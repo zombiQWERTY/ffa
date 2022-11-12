@@ -2,7 +2,7 @@ import { AnyAction, Middleware } from "@reduxjs/toolkit";
 import { AuthSlice } from "../store/Auth/Auth.slice";
 import { RootState } from "./store";
 
-export const localStorageMiddleware: Middleware<{}, {}> =
+export const localStorageMiddleware: Middleware<object, object> =
   (store) => (next) => (action: AnyAction) => {
     const result = next(action);
 

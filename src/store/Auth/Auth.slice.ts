@@ -11,7 +11,7 @@ export const AuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout(state, action: PayloadAction<void>) {
+    logout() {
       return initialState;
     },
     setRemember(state, action: PayloadAction<boolean>) {
