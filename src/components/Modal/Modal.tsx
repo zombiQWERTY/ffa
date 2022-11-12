@@ -45,7 +45,7 @@ export const Modal = ({
             aria-modal
             aria-hidden
             role="dialog"
-            className="w-full md:inset-0 h-modal md:h-full grid place-items-center overflow-y-auto overflow-x-hidden fixed z-50"
+            className="w-full inset-0 h-modal h-full grid place-items-center overflow-y-auto overflow-x-hidden fixed z-50"
             onClick={toggle}
           >
             <div
