@@ -1,3 +1,7 @@
+# Additional info
+
+If you want to start in docker - just run it with port 3001 and that's all (in current config used 3001 port instead of 80/443 and with no domain and certificates)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) TS template.
