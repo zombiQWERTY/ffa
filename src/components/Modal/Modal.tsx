@@ -1,11 +1,11 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode, useCallback, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Close } from "../Icon";
 
 const ESCAPE = "Escape";
 const isKeyEscape = (key: string) => key === ESCAPE;
 
-export type ModalProps = {
+export interface ModalProps {
   title: string;
   content?: string;
   children?: ReactNode;
@@ -13,7 +13,7 @@ export type ModalProps = {
   style?: React.CSSProperties;
   isShowing: boolean;
   toggle: () => void;
-};
+}
 
 export const Modal = ({
   isShowing,
@@ -22,9 +22,6 @@ export const Modal = ({
   content,
   children,
 }: ModalProps) => {
-  const onInnerClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-    e.stopPropagation();
-
   useEffect(() => {
     const closeOnEsc = (e: KeyboardEvent) => {
       if (isKeyEscape(e.key) && isShowing) {
@@ -35,6 +32,11 @@ export const Modal = ({
     window.addEventListener("keydown", closeOnEsc);
     return () => window.removeEventListener("keydown", closeOnEsc);
   }, [isShowing, toggle]);
+
+  const onInnerClick = useCallback(
+    (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => e.stopPropagation(),
+    []
+  );
 
   return isShowing
     ? createPortal(
