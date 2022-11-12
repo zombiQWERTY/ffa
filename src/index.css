@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind forms;
+@tailwind components;
+@tailwind utilities;
+
+.eye-icon:hover path {
+  fill: rgb(29 78 216 / var(--tw-text-opacity));
+}
