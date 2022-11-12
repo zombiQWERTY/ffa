@@ -1,6 +1,6 @@
 import { Spinner } from "../Icon";
 
-interface ButtonProps {
+export interface ButtonProps {
   isLoading?: boolean;
   text: string;
   loadingText?: string;
