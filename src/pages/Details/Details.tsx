@@ -1,12 +1,12 @@
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
-import { useMemo } from "react";
+import { ReactNode, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { Table } from "../../components/Table";
 import { CountriesApi } from "../../store/Countries";
 
 interface RotatedTableData {
   left: string;
-  right: any;
+  right: ReactNode;
 }
 
 export const Details = () => {

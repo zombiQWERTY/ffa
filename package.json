@@ -17,7 +17,8 @@
     "build": "react-scripts build && cp ./_redirects ./build",
     "test": "react-scripts test",
     "test:ci": "CI=true react-scripts test",
-    "lint": "eslint --quiet --cache --fix",
+    "lint": "eslint",
+    "lint:fix": "eslint --quiet --cache --fix",
     "eject": "react-scripts eject",
     "prepare": "husky install"
   },
@@ -29,7 +30,7 @@
   },
   "lint-staged": {
     "./**/*.{js,ts,tsx}": [
-      "npm run lint"
+      "npm run lint:fix"
     ],
     "./**/*.{json,js,ts,jsx,tsx,html}": [
       "prettier --write"
