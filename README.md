@@ -1,6 +1,7 @@
 # Additional info
 
-If you want to start in docker - just run it with port 3001 and that's all (in current config used 3001 port instead of 80/443 and with no domain and certificates)
+If you want to start in docker - just run it with port 3001 and that's all (in current config used 3001 port instead of 80/443 and with no domain and certificates).\
+Also, if you will not check "remember me" checkbox - your authorization data will store in session storage. And if you check it - your auth data will store in localStorage
 
 # Getting Started with Create React App
 

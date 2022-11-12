@@ -15,9 +15,15 @@ export const localStorageMiddleware: Middleware<object, object> =
           "applicationState",
           JSON.stringify({ auth: authState })
         );
+      } else {
+        sessionStorage.setItem(
+          "applicationState",
+          JSON.stringify({ auth: authState })
+        );
       }
     } else if (action.type === "auth/logout") {
       localStorage.removeItem("applicationState");
+      sessionStorage.removeItem("applicationState");
     }
 
     return result;
@@ -25,10 +31,13 @@ export const localStorageMiddleware: Middleware<object, object> =
 
 export const reHydrateStore = () => {
   const state = localStorage.getItem("applicationState");
+  const sessionState = sessionStorage.getItem("applicationState");
 
-  if (state) {
+  if (sessionState || state) {
+    const rawState = sessionState || state;
+
     try {
-      return JSON.parse(state);
+      return JSON.parse(rawState || "");
     } catch (e) {
       console.error("Can't reHydrate store");
       return {};
