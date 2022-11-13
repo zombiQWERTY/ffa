@@ -1,8 +1,10 @@
+import { Login } from "./Login";
+
 interface AuthProps {
-  children?: React.ReactNode;
+  isLogin?: boolean;
 }
 
-export const Auth = ({ children }: AuthProps) => {
+export const Auth = ({ isLogin }: AuthProps) => {
   return (
     <section className="h-screen">
       <div className="container px-6 py-12 h-full">
@@ -14,7 +16,9 @@ export const Auth = ({ children }: AuthProps) => {
               alt=""
             />
           </div>
-          <div className="md:w-8/12 lg:w-5/12 lg:ml-20">{children}</div>
+          <div className="md:w-8/12 lg:w-5/12 lg:ml-20">
+            {isLogin && <Login />}
+          </div>
         </div>
       </div>
     </section>

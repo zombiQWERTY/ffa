@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AuthState, LoginResponse } from "./types";
+import { createUser } from "./utils";
 
 const initialState: AuthState = {
   user: null,
@@ -11,14 +12,12 @@ export const AuthSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    logout() {
-      return initialState;
-    },
+    logout: () => initialState,
     setRemember(state, action: PayloadAction<boolean>) {
       state.remember = action.payload;
     },
     setAuthData: (state, action: PayloadAction<LoginResponse>) => {
-      state.user = { email: action.payload.email };
+      state.user = createUser(action.payload);
       state.token = action.payload.token;
     },
   },

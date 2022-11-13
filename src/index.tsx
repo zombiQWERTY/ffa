@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { setupStore } from "./app/store";
 import reportWebVitals from "./reportWebVitals";
 import { Router } from "./router";
-import { reHydrateStore } from "./app/localStorageMiddleware";
+import { reHydrateStore } from "./app/storageMiddleware";
 import "./index.css";
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

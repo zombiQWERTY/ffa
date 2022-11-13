@@ -7,7 +7,11 @@ import {
 } from "@reduxjs/toolkit";
 import { AuthApi, AuthSlice } from "../store/Auth";
 import { CountriesApi } from "../store/Countries";
-import { localStorageMiddleware } from "./localStorageMiddleware";
+import { ApplicationStorage } from "./ApplicationStorage";
+import { storageMiddleware } from "./storageMiddleware";
+
+// We are using localStorage for persistent store and sessionStorage for handling page refreshing
+export const AppStorage = new ApplicationStorage();
 
 export const rootReducer = combineReducers({
   [AuthSlice.name]: AuthSlice.reducer,
@@ -21,7 +25,7 @@ export function setupStore(preloadedState?: PreloadedState<RootState>) {
     preloadedState,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware().concat([
-        localStorageMiddleware,
+        storageMiddleware,
         AuthApi.middleware,
         CountriesApi.middleware,
       ]),

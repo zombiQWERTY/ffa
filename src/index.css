@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Not the best way but in this task is fastest */
 .eye-icon:hover path {
   fill: rgb(29 78 216 / var(--tw-text-opacity));
 }
