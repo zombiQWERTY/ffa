@@ -1,6 +1,6 @@
 import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { FetchBaseQueryArgs } from "@reduxjs/toolkit/dist/query/fetchBaseQuery";
-import { RootState } from "./store";
+import { RootState } from "../../app/store";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
@@ -17,7 +17,7 @@ export const prepareHeaders: FetchBaseQueryArgs["prepareHeaders"] = (
   return headers;
 };
 
-export const BaseAppQuery = fetchBaseQuery({
+export const baseAppQuery = fetchBaseQuery({
   baseUrl: API_URL,
   prepareHeaders,
 });

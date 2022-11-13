@@ -1,10 +1,10 @@
 import { createApi, FetchBaseQueryError } from "@reduxjs/toolkit/query/react";
-import { BaseAppQuery } from "../../app/storeUtils";
+import { baseAppQuery } from "./authApiUtils";
 import { LoginResponse, LoginRequestData, LoginErrorResponse } from "./types";
 
 export const AuthApi = createApi({
   reducerPath: "authApi",
-  baseQuery: BaseAppQuery,
+  baseQuery: baseAppQuery,
   endpoints: (builder) => ({
     login: builder.mutation<LoginResponse, LoginRequestData>({
       query: (credentials) => ({
